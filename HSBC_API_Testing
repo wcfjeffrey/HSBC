@@ -1,0 +1,16 @@
+#HSBC HK production
+
+import requests
+import json
+
+ClientID = 'b85ddeae-8458-406c-8b71-1d2f97e5ce28' #Your Own Proudciton ClientID
+ClientSecret = 'ac5dc029-c076-47a0-a923-e6a7b0b3baa9' #Your Own Proudciton ClientSecret
+
+headers = {
+    'accept': 'application/json',
+    'ClientID': ClientID,
+    'ClientSecret': ClientSecret,
+}
+
+response = requests.get('https://api.hsbc.com.hk/live/open-banking/v1.0/personal-foreign-exchange-rates', headers=headers)
+d_hsbc = json.loads(response.content.decode())
